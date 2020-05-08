@@ -1,4 +1,4 @@
-///// => const { ScanSync } = require('ScanSync') <= /////
+///// => const { ScanSync } = require('scan_sync') <= /////
 
 ScanSync('C:/Users/TDtwi/','Pictures',{
     directory: '/home/pi/ftp/',
