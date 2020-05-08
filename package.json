@@ -1,6 +1,6 @@
 {
-  "name": "sync_it",
-  "version": "1.0.0",
+  "name": "scan_sync",
+  "version": "1.0.1",
   "description": "",
   "main": "main.js",
   "scripts": {
