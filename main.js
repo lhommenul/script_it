@@ -7,6 +7,7 @@ const app = express();
 const START_DIRECTORY = 'C:/Users/TDtwi/'
 const START_FOLDER = 'Pictures'
 
+
 const REMOTE = {
     directory: '/home/pi/ftp/',
     host: '192.168.1.65',
@@ -14,9 +15,11 @@ const REMOTE = {
     username: 'pi',
     password: 'raspberry',
     // type_file_to_save:{
-    //     txt:true
-    // },
-}
+        //     txt:true
+        // },
+    }
+
+app.use('/static', express.static(path.join(__dirname, REMOTE.directory)))
 
 app.get('/allimg',async (req,res)=>{
     res.send(await name())
