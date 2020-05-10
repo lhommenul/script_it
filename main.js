@@ -19,7 +19,7 @@ const REMOTE = {
         // },
     }
 
-app.use('/static', express.static(path.join(__dirname, REMOTE.directory)))
+app.use('/static', express.static('/home/pi/sync/'))
 
 app.get('/allimg',async (req,res)=>{
     res.header('Access-Control-Allow-Origin','*')
