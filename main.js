@@ -1,6 +1,8 @@
 const path = require('path')
 const fs = require('fs')
-const {uploadFile , createAFolder} = require('./ftp_connection')
+const {uploadFile , createAFolder , listDir} = require('./ftp_connection')
+const express = require('express')
+const app = express();
 
 const START_DIRECTORY = 'C:/Users/TDtwi/'
 const START_FOLDER = 'Pictures'
@@ -15,6 +17,15 @@ const REMOTE = {
     //     txt:true
     // },
 }
+
+app.get('/allimg',async (req,res)=>{
+    res.send(await name())
+})
+        async function name() {
+            return await listDir(REMOTE);
+        }
+
+// console.log(listDir(REMOTE));
 
 exports.ScanSync = (START_DIRECTORY,START_FOLDER,REMOTE)=>{
     class Folder{
@@ -97,4 +108,4 @@ exports.ScanSync = (START_DIRECTORY,START_FOLDER,REMOTE)=>{
 }
 
 
-
+app.listen(8080)

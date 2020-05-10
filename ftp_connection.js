@@ -88,3 +88,22 @@ exports.createAFolder = async (remote,origin,directory_path,folder_name) =>{
           });
     })
 }
+
+exports.listDir = async (remote)=>{
+    return await new Promise((resolve,reject)=>{
+        let sftp = new Client(); 
+        sftp.connect({
+            host: remote.host,
+            port: remote.port,
+            username: remote.username,
+            password: remote.password
+        }).then(() => {
+            return sftp.list('/home/pi/sync');
+          }).then(data => {
+            resolve(data)
+          }).catch(err => {
+            console.log(err, 'catch error');
+            reject(err)
+          });
+    })
+}
