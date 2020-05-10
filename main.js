@@ -22,11 +22,12 @@ const REMOTE = {
 app.use('/static', express.static(path.join(__dirname, REMOTE.directory)))
 
 app.get('/allimg',async (req,res)=>{
+    res.header('Access-Control-Allow-Origin','*')
     res.send(await name())
 })
-        async function name() {
-            return await listDir(REMOTE);
-        }
+    async function name() {
+        return await listDir(REMOTE);
+    }
 
 // console.log(listDir(REMOTE));
 
